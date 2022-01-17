@@ -3,8 +3,14 @@ from BinaryNode import BinaryNode
 
 class BinaryTree:
     def __init__(self):
+        super().__init__()
         self._root = None
         self._size = 0
+    
+    def __init__(self, node: BinaryNode):
+        super().__init__()
+        self._root = node
+        self._size = self._size_subtree_recursive(self._root)
     
     def size(self) -> int:
         return self._size

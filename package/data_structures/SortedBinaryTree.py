@@ -7,8 +7,8 @@ class SortedBinaryTree(BinaryTree):
         super(SortedBinaryTree, self).__init__()
     
     def __init__(self, node: BinaryNode):
-        self._root = self._sort(node)
-        self._size = self._size_subtree_recursive(self._root)
+        super(SortedBinaryTree, self).__init__(node)
+        self._root = self._sort(self._root)
     
     def _sort(self, node: BinaryNode) -> BinaryNode:
         pass
