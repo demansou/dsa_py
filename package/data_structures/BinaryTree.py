@@ -101,7 +101,7 @@ class BinaryTree:
         return node
 
     
-    def _find_bfs(self, node: BinaryNode, value: int) -> bool:
+    def __find_bfs(self, node: BinaryNode, value: int) -> bool:
         if not node: return False
         queue = [node]
         while queue:
@@ -112,7 +112,7 @@ class BinaryTree:
             queue.append(current.right)
         return False
     
-    def _find_dfs(self, node: BinaryNode, value: int) -> bool:
+    def __find_dfs(self, node: BinaryNode, value: int) -> bool:
         if not node: return False
         stack = [node]
         while stack:
@@ -128,7 +128,7 @@ class BinaryTree:
         if value == node.value: return True
         return self._find_recursive(node.left, value) or self._find_recursive(node.right, value)
     
-    def _last_value_iterative(self, node: BinaryNode) -> int:
+    def __last_value_iterative(self, node: BinaryNode) -> int:
         last_value = None
         queue = [node]
         while queue:
@@ -139,10 +139,10 @@ class BinaryTree:
             queue.append(current.right)
         return last_value
     
-    def _last_value_recursive(self, node: BinaryNode) -> int:
+    def __last_value_recursive(self, node: BinaryNode) -> int:
         if not node: return None
-        if last_val_right:= self._last_value_recursive(node.right): return last_val_right
-        if last_val_left := self._last_value_recursive(node.left): return last_val_left
+        if last_val_right:= self.__last_value_recursive(node.right): return last_val_right
+        if last_val_left := self.__last_value_recursive(node.left): return last_val_left
         return node.val
     
     def _sum_iterative_bfs(self, node: BinaryNode) -> int:
@@ -173,7 +173,7 @@ class BinaryTree:
         if not node: return 0
         return node.val + self._sum_recursive(node.left) + self._sum_recursive(node.right)
     
-    def _min_iterative_bfs(self, node: BinaryNode) -> int:
+    def __min_iterative_bfs(self, node: BinaryNode) -> int:
         if not node: return -math.inf
         queue = [node]
         min_val = math.inf
@@ -185,7 +185,7 @@ class BinaryTree:
             queue.append(current.right)
         return min_val
     
-    def _min_iterative_dfs(self, node: BinaryNode) -> int:
+    def __min_iterative_dfs(self, node: BinaryNode) -> int:
         if not node: return -math.inf
         stack = [node]
         min_val = math.inf
@@ -201,7 +201,7 @@ class BinaryTree:
         if not node: return math.inf
         return min(node.val, self._min_recursive(node.left), self._min_recursive(node.right))
     
-    def _max_iterative_bfs(self, node: BinaryNode) -> int:
+    def __max_iterative_bfs(self, node: BinaryNode) -> int:
         if not node: return math.inf
         queue = [node]
         max_val = -math.inf
@@ -213,7 +213,7 @@ class BinaryTree:
             queue.append(current.right)
         return max_val
     
-    def _max_iterative_dfs(self, node: BinaryNode) -> int:
+    def __max_iterative_dfs(self, node: BinaryNode) -> int:
         if not node: return math.inf
         stack = [node]
         max_val = -math.inf
